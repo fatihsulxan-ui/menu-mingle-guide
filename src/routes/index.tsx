@@ -67,34 +67,34 @@ function Menu() {
   }, [category, query, sort]);
 
   return (
-    <main className="mx-auto min-h-screen w-full max-w-lg px-5 pb-10 pt-5">
-      <header className="flex h-48 items-center justify-center rounded-3xl bg-cream">
+    <main className="mx-auto min-h-screen w-full max-w-lg px-4 pb-10">
+      <header className="-mx-4 flex h-44 items-center justify-center rounded-b-3xl bg-cream">
         <div className="flex h-16 w-16 items-center justify-center rounded-full border border-cream-foreground/50 text-cream-foreground">
           <Coffee className="h-8 w-8" strokeWidth={1.25} />
         </div>
       </header>
 
-      <nav className="no-scrollbar -mx-5 mt-6 flex gap-3 overflow-x-auto px-5">
+      <nav className="no-scrollbar -mx-4 mt-5 flex gap-2 overflow-x-auto px-4">
         {CATEGORIES.map((c) => (
           <button key={c.id} onClick={() => { setCategory(c.id); setQuery(""); }}
-            className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${category === c.id && !query ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+            className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${category === c.id && !query ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
             {c.label}
           </button>
         ))}
       </nav>
 
-      <div className="relative mt-5 flex items-center gap-3">
-        <label className="flex flex-1 items-center gap-3 rounded-full bg-input px-5 py-3.5">
-          <Search className="h-5 w-5 text-muted-foreground" />
+      <div className="relative mt-4 flex items-center gap-2">
+        <label className="flex flex-1 items-center gap-2 rounded-full bg-input px-4 py-2.5">
+          <Search className="h-4 w-4 text-muted-foreground" />
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Kahve ara..."
             className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground" />
         </label>
         <button aria-label="Sırala" onClick={() => setShowSort((s) => !s)}
-          className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-          <SlidersHorizontal className="h-5 w-5" />
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+          <SlidersHorizontal className="h-4 w-4" />
         </button>
         {showSort && (
-          <div className="absolute right-0 top-14 z-10 w-44 rounded-2xl bg-card p-2 shadow-xl">
+          <div className="absolute right-0 top-12 z-10 w-44 rounded-2xl bg-card p-2 shadow-xl">
             {SORTS.map((s) => (
               <button key={s.id} onClick={() => { setSort(s.id); setShowSort(false); }}
                 className={`block w-full rounded-xl px-3 py-2 text-left text-sm ${sort === s.id ? "bg-secondary text-primary" : "text-card-foreground"}`}>
