@@ -77,20 +77,20 @@ function Menu() {
       <nav className="no-scrollbar -mx-4 mt-5 flex gap-2 overflow-x-auto px-4">
         {CATEGORIES.map((c) => (
           <button key={c.id} onClick={() => { setCategory(c.id); setQuery(""); }}
-            className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${category === c.id && !query ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
+            className={`shrink-0 rounded-full px-4 py-2 text-[13px] font-medium transition-colors ${category === c.id && !query ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}>
             {c.label}
           </button>
         ))}
       </nav>
 
       <div className="relative mt-4 flex items-center gap-2">
-        <label className="flex flex-1 items-center gap-2 rounded-full bg-input px-4 py-2.5">
+        <label className="flex flex-1 items-center gap-2 rounded-full bg-input px-4 py-3">
           <Search className="h-4 w-4 text-muted-foreground" />
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Kahve ara..."
             className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground" />
         </label>
         <button aria-label="Sırala" onClick={() => setShowSort((s) => !s)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+          className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
           <SlidersHorizontal className="h-4 w-4" />
         </button>
         {showSort && (
